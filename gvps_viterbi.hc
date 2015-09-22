@@ -128,7 +128,7 @@ for(t = 0; t < T; t ++)
 {
 #ifndef FULL
     nsparse[t] = obsrv -> slice[t] -> N;
-    a_[t] = calloc(nsparse[t], sizeof(FP_TYPE*));
+    a_[t] = calloc(nsparse[t], sizeof(FP_TYPE));
     p_[t] = calloc(nsparse[t], sizeof(int*));
 #endif
 #ifndef STATIC
