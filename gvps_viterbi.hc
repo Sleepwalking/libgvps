@@ -47,8 +47,8 @@ int T = obsrv -> T;
 int nstate = obsrv -> slice[0] -> N;
 #define nstate_at(t) nstate
 #define state_at(t, n) n
-FP_TYPE*  a_ = calloc(T * nstate, sizeof(FP_TYPE*));
-int*      p_ = calloc(T * nstate, sizeof(int*));
+FP_TYPE*  a_ = calloc(T * nstate, sizeof(FP_TYPE));
+int*      p_ = calloc(T * nstate, sizeof(int));
 #define a(t, n) a_[(t) * nstate + (n)]
 #define p(t, n) p_[(t) * nstate + (n)]
 #else
@@ -129,7 +129,7 @@ for(t = 0; t < T; t ++)
 #ifndef FULL
     nsparse[t] = obsrv -> slice[t] -> N;
     a_[t] = calloc(nsparse[t], sizeof(FP_TYPE));
-    p_[t] = calloc(nsparse[t], sizeof(int*));
+    p_[t] = calloc(nsparse[t], sizeof(int));
 #endif
 #ifndef STATIC
     int d;
