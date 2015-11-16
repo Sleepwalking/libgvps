@@ -146,6 +146,14 @@ for(t = 0; t < T; t ++)
 }
 #endif
 
+#ifdef VARIABLE
+for(t = 0; t < T; t ++) {
+    nsparse[t] = obsrv -> slice[t] -> N;
+    a_[t] = calloc(nsparse[t], sizeof(FP_TYPE));
+    p_[t] = calloc(nsparse[t], sizeof(int));
+}
+#endif
+
 // initialization
 #ifdef HIDDEN
 FP_TYPE pexposed = 0;
