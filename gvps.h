@@ -34,7 +34,9 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef GVPS
 #define GVPS
 
+#ifndef FP_TYPE
 #define FP_TYPE double
+#endif
 
 typedef struct
 {
