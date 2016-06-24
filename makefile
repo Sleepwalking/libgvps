@@ -1,7 +1,8 @@
+export FP_TYPE ?= float
 #CC = clang-3.5
-CC = gcc
-AR = ar
-CFLAGS = -Ofast -std=c99 -Wall -fPIC
+CC = $(CROSS)gcc
+AR = $(CROSS)ar
+CFLAGS = -DFP_TYPE=$(FP_TYPE) -Ofast -std=c99 -Wall -fPIC $(CFLAGSEXT)
 ARFLAGS = -rv
 OUT_DIR = ./build
 OBJS = $(OUT_DIR)/gvps_sampled.o $(OUT_DIR)/gvps_obsrv.o $(OUT_DIR)/gvps_full.o $(OUT_DIR)/gvps_variable.o
