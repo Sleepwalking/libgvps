@@ -32,7 +32,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
 #include "gvps.h"
-#include <malloc.h>
+#include <stdlib.h>
 #include <string.h>
 
 gvps_obsrv* gvps_obsrv_create(int T)

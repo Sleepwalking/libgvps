@@ -32,7 +32,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
 #include "gvps.h"
-#include <malloc.h>
+#include <stdlib.h>
 #include <math.h>
 
 #define max(a, b) ((a) > (b) ? (a) : (b))
