@@ -1,3 +1,6 @@
+
+PREFIX=/usr
+
 export FP_TYPE ?= float
 #CC = clang-3.5
 CC = $(CROSS)gcc
@@ -19,11 +22,13 @@ $(OUT_DIR)/gvps_full.o : gvps_full.c gvps_viterbi.hc gvps.h
 $(OUT_DIR)/gvps_variable.o : gvps_variable.c gvps_viterbi.hc gvps.h
 
 $(OUT_DIR)/%.o : %.c gvps.h
+	mkdir -p $(OUT_DIR)
 	$(CC) $(CFLAGS) -o $(OUT_DIR)/$*.o -c $*.c
 
 install: $(OUT_DIR)/libgvps.a
-	cp $(OUT_DIR)/libgvps.a /usr/lib/
-	cp gvps.h /usr/include/
+	mkdir -p $(PREFIX)/lib/ $(PREFIX)/include/
+	cp $(OUT_DIR)/libgvps.a $(PREFIX)/lib/
+	cp gvps.h $(PREFIX)/include/
 	@echo Done.
 
 clean:
