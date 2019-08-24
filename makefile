@@ -29,9 +29,9 @@ $(OUT_DIR)/%.o : %.c gvps.h
 	$(CC) $(CFLAGS) -o $(OUT_DIR)/$*.o -c $*.c
 
 install: $(OUT_DIR)/libgvps.a
-	mkdir -p $(PREFIX)/lib/ $(PREFIX)/include/
+	mkdir -p $(PREFIX)/lib/ $(PREFIX)/include/libgvps
 	cp $(OUT_DIR)/libgvps.a $(PREFIX)/lib/
-	cp gvps.h $(PREFIX)/include/
+	cp gvps.h $(PREFIX)/include/libgvps
 	@echo Done.
 
 clean:
