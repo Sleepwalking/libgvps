@@ -2,13 +2,19 @@
 PREFIX=/usr
 
 export FP_TYPE ?= float
+CONFIG = Debug
+
 #CC = clang-3.5
 CC = $(CROSS)gcc
 AR = $(CROSS)ar
 CFLAGS_COMMON = -DFP_TYPE=$(FP_TYPE) -std=c99 -Wall -fPIC $(CFLAGSEXT)
 CFLAGS_DBG = $(CFLAGS_COMMON) -Og -g
 CFLAGS_REL = $(CFLAGS_COMMON) -Ofast
-CFLAGS = $(CFLAGS_DBG)
+ifeq ($(CONFIG), Debug)
+  CFLAGS = $(CFLAGS_DBG)
+else
+  CFLAGS = $(CFLAGS_REL)
+endif
 ARFLAGS = -rv
 OUT_DIR = ./build
 OBJS = $(OUT_DIR)/gvps_sampled.o $(OUT_DIR)/gvps_obsrv.o $(OUT_DIR)/gvps_full.o $(OUT_DIR)/gvps_variable.o
